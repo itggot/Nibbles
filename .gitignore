@@ -48,3 +48,6 @@ Temporary Items
 
 #IDEA temp files
 .idea/**
+
+#Compiled python files
+.pyc

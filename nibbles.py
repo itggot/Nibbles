@@ -3,7 +3,8 @@ from pygame.locals import *
 import sys
 from player import Player
 from plupp import Plupp
-
+from eventhandler import EventHandler
+from collisionhandler import CollisionHandler
 
 class Game(object):
 
@@ -15,11 +16,11 @@ class Game(object):
         self.clock = pygame.time.Clock()
 
         while True:
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    pygame.quit()
-                    sys.exit()
-            self.clock.tick(20)
+            CollisionHandler.handle_plupp_collisions(player=self.player, plupp=self.plupp)
+            CollisionHandler.handle_player_collisions(player=self.player)
+
+            EventHandler.handle_events(player=self.player, plupp=self.plupp)
+            self.clock.tick(15)
             self.update()
             self.draw()
 

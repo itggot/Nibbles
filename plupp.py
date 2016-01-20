@@ -12,5 +12,10 @@ class Plupp(object):
         self.y = random.randint(0, (self.window_height - 10) / 10) * 10
         self.image = pygame.image.load(os.path.join('media', 'plupp.png'))
 
+    def respawn(self):
+        self.x = random.randint(0, (self.window_width - 10) / 10) * 10
+        self.y = random.randint(0, (self.window_height - 10) / 10) * 10
+
+
     def draw(self, window):
         window.blit(self.image, (self.x, self.y))
