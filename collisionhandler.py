@@ -1,19 +1,17 @@
 import pygame
 from pygame.locals import *
+import events
 
 class CollisionHandler(object):
 
     @classmethod
     def handle_plupp_collisions(self, player, plupp):
-        if player.x == plupp.x and player.y == plupp.y:
-            event = pygame.event.Event(USEREVENT + 1) #PLUPPGET
+        if player.is_colliding_with_plupp(plupp):
+            event = pygame.event.Event(events.PLUPPEATEN)
             pygame.event.post(event)
-
 
     @classmethod
     def handle_player_collisions(self, player):
-        for segment in player.tail:
-            if player.x == segment[] and player.y == segment[1]:
-                event = pygame.event.Event(USEREVENT + 2) #PLAYERDIE
-                pygame.event.post(event)
-
+        if player.is_colliding_with_self() or player.is_colliding_with_wall():
+            event = pygame.event.Event(events.PLAYERDIED)
+            pygame.event.post(event)

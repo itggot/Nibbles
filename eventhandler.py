@@ -1,6 +1,7 @@
 import pygame
 from pygame.locals import *
 import sys
+import events
 
 class EventHandler(object):
 
@@ -18,8 +19,8 @@ class EventHandler(object):
                 elif event.key == K_ESCAPE:
                     quit()
                     sys.exit()
-            elif event.type == USEREVENT + 1:
+            elif event.type == events.PLUPPEATEN:
                 plupp.respawn()
                 player.grow()
-            elif event.type == USEREVENT + 2:
+            elif event.type == events.PLAYERDIED:
                 player.reset()

@@ -12,7 +12,7 @@ class Game(object):
         pygame.init()
         self.window = pygame.display.set_mode((640, 480))
         self.player = Player(x=100, y=100, width=640, height=480)
-        self.plupp =  Plupp(window_width=640, window_height=480)
+        self.plupp = Plupp(window_width=640, window_height=480)
         self.clock = pygame.time.Clock()
 
         while True:
