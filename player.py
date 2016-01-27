@@ -52,11 +52,12 @@ class Player(object):
     def turn_right(self):
         self.directions.rotate(-1)
 
-    def is_colliding_with_wall(self):
-        return self.x > self.window_width - 10 or\
-           self.x < 0 or\
-           self.y > self.window_height - 10 or\
-           self.y < 0
+    def is_colliding_with_wall(self, map):
+        return map.is_wall_at(self.head)
+        # return self.x > self.window_width - 10 or\
+        #    self.x < 0 or\
+        #    self.y > self.window_height - 10 or\
+        #    self.y < 0
 
     def is_colliding_with_self(self):
         if len(self.segments) > 4:

@@ -11,7 +11,7 @@ class CollisionHandler(object):
             pygame.event.post(event)
 
     @classmethod
-    def handle_player_collisions(self, player):
-        if player.is_colliding_with_self() or player.is_colliding_with_wall():
+    def handle_player_collisions(self, player, map):
+        if player.is_colliding_with_self() or player.is_colliding_with_wall(map):
             event = pygame.event.Event(events.PLAYERDIED)
             pygame.event.post(event)
